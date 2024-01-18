@@ -1,0 +1,13 @@
+defaultTasks 'compile'
+
+def compileIf = tasks.register("compile"){
+	doLast{
+		println "Compiling Java Code"
+	}
+}
+
+compileIf.configure{
+	onlyIf{
+		project.hasProperty("env") && project.env=="prod"
+	}
+}
