@@ -1,0 +1,11 @@
+defaultTasks "displayProp"
+
+description = "This is the project description"
+
+tasks.register("displayProp"){
+	doFirst{
+		println "Name of the Project : ${project.name}"
+		println "Path : ${project.path}"
+		println "Description of the Project: ${project.description}"
+	}
+}
