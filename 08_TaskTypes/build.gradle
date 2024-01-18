@@ -1,0 +1,17 @@
+tasks.register("custCopy",Copy){
+	from "src/"
+	eachFile {
+		println getName()
+	}
+	include "**/*.txt"
+	into "dest/"
+}
+
+tasks.register("custZip",Zip){
+	from 'src/'
+	eachFile {
+		println getName()
+	}
+	archiveFileName= 'CustomZip.zip'
+	destinationDirectory = file 'dest/'
+}
