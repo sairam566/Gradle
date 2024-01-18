@@ -1,0 +1,22 @@
+tasks.register("clean"){
+	doFirst{
+		println "From Clean Task"
+	}
+}
+
+tasks.register("compile"){
+	dependsOn "clean"
+	doFirst{
+		println "Compile Java Code"
+	}
+}
+
+def jarPackage = tasks.register("jar"){
+	doFirst{
+		println "Packaging into a JAR File"
+	}
+}
+
+jarPackage.configure{
+	dependsOn "compile"
+}
