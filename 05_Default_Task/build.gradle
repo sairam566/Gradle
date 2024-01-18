@@ -1,0 +1,14 @@
+defaultTasks "compile"
+
+tasks.register("clean"){
+	doFirst{
+		println "From clean Task"
+	}
+}
+
+tasks.register("compile"){
+	dependsOn "clean"
+	doLast{
+		println "From Compile Task"
+	}
+}
