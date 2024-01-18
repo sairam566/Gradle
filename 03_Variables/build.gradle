@@ -1,0 +1,27 @@
+// Project Level Variables
+def javaVersion=11
+def authorName='sairam'
+
+tasks.register("task1"){
+	doFirst{
+		println "Compile Version : ${javaVersion}"
+		println "Author Name : ${authorName}"
+	}	
+}
+
+// Task Level Variables
+tasks.register("task2"){
+	ext{
+		information="Information about the Task2"
+		taskName = "Task-2"
+	}
+	doFirst{
+		println "The Task information : ${information}"
+	}
+}
+
+tasks.register("task3"){
+	doFirst{
+		println "Variable from Task2(taskName) : ${task2.taskName}"
+	}
+}
