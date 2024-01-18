@@ -1,0 +1,18 @@
+defaultTasks "compile"
+
+def cleanTask = tasks.register("clean"){
+	doFirst{
+		println "From clean Task"
+	}
+}
+
+tasks.register("compile"){
+	dependsOn "clean"
+	doLast{
+		println "From Compile Task"
+	}
+}
+
+cleanTask.configure{
+	enabled=false
+}
