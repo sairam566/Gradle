@@ -1,0 +1,27 @@
+tasks.register("firstTask"){
+	description 'This is firstTask description'
+	doFirst{
+		println "First Task from register"
+	}
+}
+
+tasks.register("secondTask")
+
+tasks.named("secondTask"){
+	doFirst{
+		println "Second Task"
+	}
+}
+
+def noThree = tasks.register("thirdTask"){
+	ext{
+		mySource=""
+	}
+	doFirst{
+		println "Third Task ${mySource}"
+	}
+}
+
+thirdTask.configure{
+	mySource="Success"
+}
